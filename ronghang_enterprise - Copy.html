@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M/s Ronghang Enterprise – CSC | Electronics | Documents | Sales</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --navy: #0d1f4e;
+    --navy-mid: #162862;
+    --navy-light: #1e3a8a;
+    --gold: #f5a623;
+    --gold-light: #ffd166;
+    --white: #ffffff;
+    --off-white: #f4f7fc;
+    --text-dark: #0d1f4e;
+    --text-mid: #3a4a72;
+    --text-light: #7888aa;
+    --border: #d9e2f5;
+    --shadow: 0 4px 24px rgba(13,31,78,0.10);
+    --shadow-lg: 0 10px 48px rgba(13,31,78,0.18);
+    --radius: 10px;
+    --radius-lg: 18px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text-dark); background: var(--white); }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.85);
+    font-size: 0.78rem;
+    padding: 7px 0;
+    border-bottom: 2px solid var(--gold);
+  }
+  .topbar-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;
+  }
+  .topbar a { color: rgba(255,255,255,0.85); transition: color .2s; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar-item { display: flex; align-items: center; gap: 6px; }
+  .topbar-item i { color: var(--gold); font-size: 0.72rem; }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    background: var(--white);
+    box-shadow: 0 2px 16px rgba(13,31,78,0.09);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .navbar-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-logo {
+    width: 52px; height: 52px;
+    background: var(--navy);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-family: 'Playfair Display', serif;
+    font-weight: 900; font-size: 1.25rem; letter-spacing: 1px;
+    border: 2px solid var(--gold);
+    flex-shrink: 0;
+  }
+  .brand-text h1 { font-size: 1.18rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .brand-text p { font-size: 0.7rem; color: var(--text-light); font-weight: 400; }
+  nav ul { display: flex; gap: 4px; align-items: center; }
+  nav ul li a {
+    padding: 8px 16px; font-size: 0.88rem; font-weight: 500;
+    color: var(--text-mid); border-radius: 6px;
+    transition: background .2s, color .2s;
+  }
+  nav ul li a:hover, nav ul li a.active { background: var(--off-white); color: var(--navy); }
+  .nav-cta {
+    background: var(--navy) !important; color: var(--white) !important;
+    border-radius: 6px !important; padding: 8px 18px !important;
+  }
+  .nav-cta:hover { background: var(--navy-light) !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--navy); margin: 5px 0; border-radius: 2px; transition: .3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(120deg, var(--off-white) 54%, #dce8ff 100%);
+    padding: 64px 0 56px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(30,58,138,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  }
+  .hero-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--navy-light); font-style: italic; margin-bottom: 8px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; color: var(--navy); line-height: 1.1; margin-bottom: 18px;
+  }
+  .hero-title span { color: var(--navy-light); }
+  .hero-sub { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 28px; line-height: 1.6; font-weight: 400; }
+  .hero-icons { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 32px; }
+  .hero-icon-item {
+    text-align: center; padding: 14px 6px;
+    background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow);
+    border: 1px solid var(--border); transition: transform .2s, box-shadow .2s;
+  }
+  .hero-icon-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .hero-icon-item i { font-size: 1.5rem; color: var(--navy-light); margin-bottom: 6px; display: block; }
+  .hero-icon-item span { font-size: 0.7rem; font-weight: 600; color: var(--text-mid); display: block; line-height: 1.3; }
+  .btn-primary {
+    display: inline-block; padding: 13px 32px;
+    background: var(--navy); color: var(--white);
+    font-weight: 700; font-size: 0.9rem; border-radius: var(--radius);
+    letter-spacing: .5px; transition: background .2s, transform .2s;
+    border: 2px solid var(--navy);
+  }
+  .btn-primary:hover { background: var(--navy-light); transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-block; padding: 13px 32px;
+    background: transparent; color: var(--navy);
+    font-weight: 700; font-size: 0.9rem; border-radius: var(--radius);
+    letter-spacing: .5px; transition: all .2s;
+    border: 2px solid var(--navy); margin-left: 12px;
+  }
+  .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hero-img-card {
+    
+    border-radius: var(--radius-lg); overflow: hidden;
+    position: relative; aspect-ratio: 1;
+    display: flex; align-items: flex-end;
+    box-shadow: var(--shadow-lg);
+  }
+  .hero-img-card.tall { grid-row: span 2; aspect-ratio: auto; }
+  .hero-img-bg {
+    width and height: 100%;
+    background-size: 100%; background-repeat: no-repeat; background-position: center;
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    gap: 8px; font-size: 2.5rem; color: rgba(255,255,255,0.15);
+  }
+  .hero-img-card-overlay {
+    position: relative; z-index: 1; width: 100%;
+    background: linear-gradient(0deg, rgba(13,31,78,0.85) 0%, transparent 100%);
+    padding: 14px 14px 12px;
+    color: var(--white); font-size: 0.78rem; font-weight: 600;
+  }
+  .card-badge {
+    position: absolute; top: 10px; left: 10px; z-index: 2;
+    background: var(--gold); color: var(--navy);
+    font-size: 0.6rem; font-weight: 700; padding: 3px 8px; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: .5px;
+  }
+  /* hero card colors */
+  .hc1 { background: linear-gradient(135deg, #1e3a8a, #0d1f4e); }
+  .hc2 { background: linear-gradient(135deg, #162862, #1e40af); }
+  .hc3 { background: linear-gradient(135deg, #0d1f4e, #1e3a8a); }
+  .hc4 { background: linear-gradient(135deg, #1e40af, #162862); }
+
+  /* ── SECTION COMMON ── */
+  .section { padding: 72px 0; }
+  .section-alt { background: var(--off-white); }
+  .section-dark { background: var(--navy); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section-label {
+    text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--navy-light); margin-bottom: 10px;
+  }
+  .section-label::before, .section-label::after {
+    content: ''; flex: 1; max-width: 60px; height: 1px;
+    background: var(--navy-light);
+  }
+  .section-title {
+    text-align: center; font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+  }
+  .section-sub {
+    text-align: center; font-size: 0.95rem; color: var(--text-mid); margin-bottom: 48px;
+  }
+  .section-dark .section-label { color: var(--gold-light); }
+  .section-dark .section-label::before, .section-dark .section-label::after { background: var(--gold-light); }
+  .section-dark .section-title { color: var(--white); }
+  .section-dark .section-sub { color: rgba(255,255,255,0.65); }
+
+  /* ── CSC SERVICES ── */
+  .services-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .service-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: var(--radius); padding: 22px 10px 18px;
+    text-align: center; transition: transform .2s, box-shadow .2s, border-color .2s;
+    cursor: pointer;
+  }
+  .service-card:hover {
+    transform: translateY(-4px); box-shadow: var(--shadow-lg);
+    border-color: var(--navy-light);
+  }
+  .service-card i {
+    font-size: 1.6rem; color: var(--navy-light); margin-bottom: 10px; display: block;
+  }
+  .service-card span {
+    font-size: 0.8rem; font-weight: 600; color: var(--text-dark); display: block; line-height: 1.3;
+  }
+  .service-card::after {
+    content: ''; display: block; width: 30px; height: 2px;
+    background: var(--navy-light); margin: 10px auto 0; border-radius: 2px;
+    transition: width .2s;
+  }
+  .service-card:hover::after { width: 50px; }
+  .section-btn-wrap { text-align: center; margin-top: 36px; }
+
+  /* ── REPAIR CENTER ── */
+  .repair-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .repair-card {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13);
+    border-radius: var(--radius-lg); padding: 32px 24px;
+    text-align: center; transition: background .2s, transform .2s;
+  }
+  .repair-card:hover { background: rgba(255,255,255,0.13); transform: translateY(-4px); }
+  .repair-card i {
+    font-size: 2.2rem; color: var(--gold); margin-bottom: 14px; display: block;
+  }
+  .repair-card h3 { color: var(--white); font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+  .repair-card p { color: rgba(255,255,255,0.65); font-size: 0.83rem; line-height: 1.6; }
+
+  /* ── PRODUCTS ── */
+  .products-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .product-card {
+    border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); border: 1.5px solid var(--border);
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .product-img {
+    height: 140px; background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.8rem; color: rgba(255,255,255,0.2);
+    position: relative;
+  }
+  .product-img i { position: relative; z-index: 1; font-size: 2.8rem; color: rgba(255,255,255,0.35); }
+  .product-img::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--navy-mid), var(--navy));
+  }
+  .p1 .product-img { background: linear-gradient(135deg, #0d1f4e, #162862); }
+  .p2 .product-img { background: linear-gradient(135deg, #162862, #1e3a8a); }
+  .p3 .product-img { background: linear-gradient(135deg, #1e3a8a, #0d1f4e); }
+  .p4 .product-img { background: linear-gradient(135deg, #0d1f4e, #1e40af); }
+  .p5 .product-img { background: linear-gradient(135deg, #1e40af, #162862); }
+  .product-label {
+    background: var(--navy); color: var(--white);
+    font-size: 0.8rem; font-weight: 700; text-align: center;
+    padding: 11px 8px; letter-spacing: .3px;
+  }
+
+  /* ── WHY CHOOSE ── */
+  .why-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+  .why-card { text-align: center; padding: 24px 12px; }
+  .why-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--off-white); border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 14px; font-size: 1.4rem; color: var(--navy-light);
+    transition: background .2s, border-color .2s;
+  }
+  .why-card:hover .why-icon { background: var(--navy); border-color: var(--navy); color: var(--gold); }
+  .why-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); line-height: 1.3; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); color: rgba(255,255,255,0.75); }
+  .footer-main { padding: 56px 0 36px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1.2fr 1.6fr 1.8fr; gap: 40px; }
+  .footer-brand h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 12px;
+  }
+  .footer-brand p { font-size: 0.83rem; line-height: 1.7; margin-bottom: 18px; }
+  .footer-col h3 {
+    font-size: 0.9rem; font-weight: 700; color: var(--white);
+    margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--gold);
+  }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col ul li a {
+    font-size: 0.83rem; color: rgba(255,255,255,0.7);
+    transition: color .2s; display: flex; align-items: center; gap: 8px;
+  }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-col ul li a i { font-size: 0.65rem; color: var(--gold); }
+  .contact-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin-bottom: 12px; font-size: 0.83rem; color: rgba(255,255,255,0.75);
+  }
+  .contact-item i { color: var(--gold); margin-top: 2px; flex-shrink: 0; font-size: 0.85rem; }
+  .social-row { display: flex; gap: 10px; margin-top: 18px; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-size: 0.85rem; transition: background .2s, color .2s;
+  }
+  .social-btn:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .map-placeholder {
+    background: rgba(255,255,255,0.08); border-radius: var(--radius);
+    height: 90px; display: flex; align-items: center; justify-content: center;
+    margin-top: 12px; border: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.78rem; color: rgba(255,255,255,0.5); gap: 6px;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 18px 0; text-align: center;
+    font-size: 0.78rem; color: rgba(255,255,255,0.45);
+  }
+
+  /* ── MOBILE NAV ── */
+  @media (max-width: 900px) {
+    .hamburger { display: block; }
+    nav { display: none; position: absolute; top: 68px; left: 0; right: 0;
+      background: var(--white); box-shadow: var(--shadow-lg); padding: 16px; }
+    nav.open { display: block; }
+    nav ul { flex-direction: column; gap: 2px; }
+    nav ul li a { display: block; padding: 10px 14px; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-grid { display: none; }
+    .hero-title { font-size: 2.2rem; }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .repair-grid { grid-template-columns: repeat(2, 1fr); }
+    .products-grid { grid-template-columns: repeat(3, 1fr); }
+    .why-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .repair-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-icons { grid-template-columns: repeat(2, 1fr); }
+    .topbar-inner { gap: 8px; font-size: 0.72rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  .delay-1 { animation-delay: .1s; }
+  .delay-2 { animation-delay: .2s; }
+  .delay-3 { animation-delay: .3s; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:18px;flex-wrap:wrap;">
+      <a href="https://maps.google.com" target="_blank" class="topbar-item">
+        <i class="fas fa-map-marker-alt"></i>
+        Kheroni Road, Donkamokam, West Karbi Anglong – 782485
+      </a>
+      <a href="tel:7637047059" class="topbar-item">
+        <i class="fas fa-phone"></i>
+        +91 7637047059
+      </a>
+      <a href="tel:9678986762" class="topbar-item">
+        <i class="fas fa-phone"></i>
+        +91 9678986762
+      </a>
+      <a href="mailto:ronghangenterprise@gmail.com" class="topbar-item">
+        <i class="fas fa-envelope"></i>
+        ronghangenterprise@gmail.com
+      </a>
+    </div>
+    <div class="topbar-item">
+      <i class="fas fa-clock"></i>
+      Mon – Sat : 9:00 AM – 7:00 PM
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <div class="brand">
+      <div class="brand-logo">RE</div>
+      <div class="brand-text">
+        <h1>M/s Ronghang Enterprise</h1>
+        <p>CSC Services | Electronics Repair | Documents | Sales</p>
+      </div>
+    </div>
+    <button class="hamburger" id="menuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-label">Welcome to</div>
+      <h1 class="hero-title">M/s Ronghang<br><span>Enterprise</span></h1>
+      <p class="hero-sub">Your One Stop Solution for CSC Services,<br>Electronics Repair, Documents &amp; More.</p>
+      <div class="hero-icons">
+        <div class="hero-icon-item"><i class="fas fa-id-card"></i><span>CSC &amp; Govt Services</span></div>
+        <div class="hero-icon-item"><i class="fas fa-tools"></i><span>Electronics Repair</span></div>
+        <div class="hero-icon-item"><i class="fas fa-desktop"></i><span>Computer Parts &amp; Accessories</span></div>
+        <div class="hero-icon-item"><i class="fas fa-mobile-alt"></i><span>Mobile Accessories</span></div>
+      </div>
+      <a href="#contact" class="btn-primary">Visit Our Center</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+    <div class="hero-grid fade-up delay-2">
+      <div class="hero-img-card hc1">
+        <div class="hero-img-bg"><i class="fas fa-water"></i></div>
+        <div class="card-badge">Water Pump Motor Repair</div>
+         <img src="pump.JPG" alt="Ceiling Fan Repair">
+        <div class="hero-img-card-overlay">Water Pump Motor Repair</div>
+      </div>
+      <div class="hero-img-card hc2">
+        <div class="hero-img-bg"><i class="fas fa-fan"></i></div>
+        <div class="card-badge">Ceiling Fan Repair</div>
+        <img src="fan1.JPG" alt="Ceiling Fan Repair">
+        <div class="hero-img-card-overlay">Ceiling Fan Repair</div>
+      </div>
+      <div class="hero-img-card hc3">
+        <div class="hero-img-bg"><i class="fas fa-fan" style="transform:rotate(45deg)"></i></div>
+        <div class="card-badge">Table Fan Repair</div>
+        <img src="fan2.JPG" alt="Ceiling Fan Repair">
+        <div class="hero-img-card-overlay">Table Fan Repair</div>
+      </div>
+      <div class="hero-img-card hc4">
+        <div class="hero-img-bg"><i class="fas fa-microchip"></i></div>
+        <div class="card-badge">Electronics Repair</div>
+        <img src="mot.JPG" alt="Electronics Repair">
+        <div class="hero-img-card-overlay">Electronics Repair</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSC & DOCUMENT SERVICES -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-label">Our Services</div>
+    <h2 class="section-title">CSC &amp; Document Services</h2>
+    <p class="section-sub">Get all your government documents and certificates at one place — fast, reliable, and affordable.</p>
+    <div class="services-grid">
+      <div class="service-card"><i class="fas fa-certificate"></i><span>Caste Certificate</span></div>
+      <div class="service-card"><i class="fas fa-baby"></i><span>Birth Certificate</span></div>
+      <div class="service-card"><i class="fas fa-cross"></i><span>Death Certificate</span></div>
+      <div class="service-card"><i class="fas fa-id-card-alt"></i><span>PAN Card</span></div>
+      <div class="service-card"><i class="fas fa-vote-yea"></i><span>Voter ID</span></div>
+      <div class="service-card"><i class="fas fa-file-invoice-dollar"></i><span>Income Certificate</span></div>
+      <div class="service-card"><i class="fas fa-passport"></i><span>Passport Services</span></div>
+      <div class="service-card"><i class="fas fa-university"></i><span>Aadhaar Services</span></div>
+      <div class="service-card"><i class="fas fa-tractor"></i><span>PM Kisan</span></div>
+      <div class="service-card"><i class="fas fa-shield-alt"></i><span>Insurance</span></div>
+      <div class="service-card"><i class="fas fa-piggy-bank"></i><span>Bank Services</span></div>
+      <div class="service-card"><i class="fas fa-print"></i><span>Print &amp; Scan</span></div>
+    </div>
+    <div class="section-btn-wrap"><a href="#contact" class="btn-primary">View All Services</a></div>
+  </div>
+</section>
+
+<!-- ELECTRONICS REPAIR -->
+<section class="section section-dark" id="repair">
+  <div class="container">
+    <div class="section-label">Expert Technicians</div>
+    <h2 class="section-title">Electronics Repair Center</h2>
+    <p class="section-sub">Professional repair services with quality workmanship and quick turnaround.</p>
+    <div class="repair-grid">
+      <div class="repair-card">
+        <i class="fas fa-water"></i>
+        <h3>Water Pump Motor Repair</h3>
+        <p>All types of single phase &amp; three phase water pump motor repairing &amp; servicing.</p>
+      </div>
+      <div class="repair-card">
+        <i class="fas fa-fan"></i>
+        <h3>Ceiling Fan Repair</h3>
+        <p>All kinds of ceiling fan repairing &amp; winding services at affordable rates.</p>
+      </div>
+      <div class="repair-card">
+        <i class="fas fa-wind"></i>
+        <h3>Table Fan Repair</h3>
+        <p>Table fan, pedestal fan repairing &amp; servicing by experienced technicians.</p>
+      </div>
+      <div class="repair-card">
+        <i class="fas fa-tools"></i>
+        <h3>Other Repair Services</h3>
+        <p>Bluetooth Speaker, Battery module, Charger, E-Lamp, LED, Soldering &amp; other electronic items repair.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-label">Our Inventory</div>
+    <h2 class="section-title">Products We Deal In</h2>
+    <p class="section-sub">Quality computer, mobile, and networking products available at our store.</p>
+    <div class="products-grid">
+      <div class="product-card p1">
+        <div class="product-img"><i class="fas fa-microchip"></i></div>
+        <div class="product-label">Computer Parts</div>
+      </div>
+      <div class="product-card p2">
+        <div class="product-img"><i class="fas fa-mobile-alt"></i></div>
+        <div class="product-label">Mobile Accessories</div>
+      </div>
+      <div class="product-card p3">
+        <div class="product-img"><i class="fas fa-wifi"></i></div>
+        <div class="product-label">Networking Products</div>
+      </div>
+      <div class="product-card p4">
+        <div class="product-img"><i class="fas fa-keyboard"></i></div>
+        <div class="product-label">Peripherals</div>
+      </div>
+      <div class="product-card p5">
+        <div class="product-img"><i class="fas fa-memory"></i></div>
+        <div class="product-label">Accessories</div>
+      </div>
+    </div>
+    <div class="section-btn-wrap"><a href="#contact" class="btn-primary">View All Products</a></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label">Why Us</div>
+    <h2 class="section-title">Why Choose Us?</h2>
+    <p class="section-sub">We stand by our commitment to quality, transparency, and customer satisfaction.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>Trusted &amp; Reliable Service</h4>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-tags"></i></div>
+        <h4>Affordable Prices</h4>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-star"></i></div>
+        <h4>Quality Workmanship</h4>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-headset"></i></div>
+        <h4>Quick Support</h4>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-smile"></i></div>
+        <h4>Customer Satisfaction</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;" class="about-grid-inner">
+      <div>
+        <div class="section-label" style="justify-content:flex-start;">About Us</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:18px;line-height:1.2;">Your Trusted Local Service Center</h2>
+        <p style="color:var(--text-mid);font-size:0.95rem;line-height:1.75;margin-bottom:16px;">M/s Ronghang Enterprise is a multi-service center providing CSC services, electronics repair, documents assistance, computer parts, and mobile accessories at affordable prices with customer satisfaction.</p>
+        <p style="color:var(--text-mid);font-size:0.95rem;line-height:1.75;margin-bottom:28px;">Located in Donkamokam, West Karbi Anglong, we serve the local community with a wide range of essential services under one roof — making it easy, fast, and hassle-free for you.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;">
+          <div style="background:var(--off-white);border-radius:var(--radius);padding:16px;border-left:3px solid var(--navy-light);">
+            <div style="font-size:1.6rem;font-weight:700;color:var(--navy);font-family:'Playfair Display',serif;">500+</div>
+            <div style="font-size:0.8rem;color:var(--text-mid);font-weight:500;">Documents Processed</div>
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--radius);padding:16px;border-left:3px solid var(--navy-light);">
+            <div style="font-size:1.6rem;font-weight:700;color:var(--navy);font-family:'Playfair Display',serif;">300+</div>
+            <div style="font-size:0.8rem;color:var(--text-mid);font-weight:500;">Repairs Completed</div>
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--radius);padding:16px;border-left:3px solid var(--gold);">
+            <div style="font-size:1.6rem;font-weight:700;color:var(--navy);font-family:'Playfair Display',serif;">5+</div>
+            <div style="font-size:0.8rem;color:var(--text-mid);font-weight:500;">Years of Service</div>
+          </div>
+          <div style="background:var(--off-white);border-radius:var(--radius);padding:16px;border-left:3px solid var(--gold);">
+            <div style="font-size:1.6rem;font-weight:700;color:var(--navy);font-family:'Playfair Display',serif;">1000+</div>
+            <div style="font-size:0.8rem;color:var(--text-mid);font-weight:500;">Happy Customers</div>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+      </div>
+      <div style="background:var(--navy);border-radius:var(--radius-lg);padding:36px;color:var(--white);">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:24px;color:var(--gold);">Our Services at a Glance</h3>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,0.07);border-radius:var(--radius);">
+            <i class="fas fa-id-card" style="color:var(--gold);width:20px;"></i>
+            <span style="font-size:0.88rem;">CSC &amp; Government Document Services</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,0.07);border-radius:var(--radius);">
+            <i class="fas fa-tools" style="color:var(--gold);width:20px;"></i>
+            <span style="font-size:0.88rem;">Electronics &amp; Appliance Repair Center</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,0.07);border-radius:var(--radius);">
+            <i class="fas fa-desktop" style="color:var(--gold);width:20px;"></i>
+            <span style="font-size:0.88rem;">Computer Parts &amp; Peripherals</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,0.07);border-radius:var(--radius);">
+            <i class="fas fa-mobile-alt" style="color:var(--gold);width:20px;"></i>
+            <span style="font-size:0.88rem;">Mobile &amp; Networking Accessories</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,0.07);border-radius:var(--radius);">
+            <i class="fas fa-wifi" style="color:var(--gold);width:20px;"></i>
+            <span style="font-size:0.88rem;">Networking Products &amp; Setup</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <div style="width:44px;height:44px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--navy);font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;flex-shrink:0;">RE</div>
+            <div><div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white);">M/s Ronghang Enterprise</div><div style="font-size:0.65rem;color:rgba(255,255,255,0.5);">CSC | Electronics | Documents | Sales</div></div>
+          </div>
+          <p>M/s Ronghang Enterprise is a multi-service center providing CSC services, electronics repair, documents assistance, computer parts, and mobile accessories at affordable prices with customer satisfaction.</p>
+          <div class="social-row">
+            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="#products"><i class="fas fa-chevron-right"></i> Products</a></li>
+            <li><a href="#repair"><i class="fas fa-chevron-right"></i> Repair Center</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Kheroni Road, Donkamokam,<br>West Karbi Anglong, Assam – 782485</span></div>
+          <div class="contact-item"><i class="fas fa-phone"></i><a href="tel:7637047059" style="color:inherit;transition:color .2s;" onmouseover="this.style.color='#ffd166'" onmouseout="this.style.color='inherit'">+91 7637047059</a></div>
+          <div class="contact-item"><i class="fas fa-phone"></i><a href="tel:9678986762" style="color:inherit;transition:color .2s;" onmouseover="this.style.color='#ffd166'" onmouseout="this.style.color='inherit'">+91 9678986762</a></div>
+          <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:ronghangenterprise@gmail.com" style="color:inherit;transition:color .2s;" onmouseover="this.style.color='#ffd166'" onmouseout="this.style.color='inherit'">ronghangenterprise@gmail.com</a></div>
+          <div class="contact-item"><i class="fas fa-clock"></i><span>Mon – Sat : 9:00 AM – 7:00 PM</span></div>
+        </div>
+        <div class="footer-col">
+          <h3>Our Location</h3>
+          <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt" style="color:var(--gold);font-size:1.2rem;"></i>
+            <span>Donkamokam,<br>West Karbi Anglong</span>
+          </div>
+          <a href="https://www.google.com/maps/place/Ronghang+CSC+centre/@25.9260912,92.7052255,85m/data=!3m1!1e3!4m6!3m5!1s0x374541194b33576f:0xbabc3ff70c589e87!8m2!3d25.9262322!4d92.7052883!16s%2Fg%2F11mhxw73_1?entry=ttu&g_ep=EgoyMDI2MDYwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank"
+            style="display:inline-block;margin-top:12px;background:var(--gold);color:var(--navy);font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:6px;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+            <i class="fas fa-external-link-alt" style="margin-right:5px;"></i>Open in Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      &copy; 2024 M/s Ronghang Enterprise. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color:var(--gold);"></i> in M/s Ronghang Enterprise
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mainNav = document.getElementById('mainNav');
+  menuBtn.addEventListener('click', () => mainNav.classList.toggle('open'));
+  // Close on link click
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mainNav.classList.remove('open')));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id], footer[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + cur) a.classList.add('active');
+    });
+  });
+
+  // Responsive about grid
+  const aboutGrid = document.querySelector('.about-grid-inner');
+  function checkAbout() {
+    if (aboutGrid) {
+      if (window.innerWidth < 768) {
+        aboutGrid.style.gridTemplateColumns = '1fr';
+      } else {
+        aboutGrid.style.gridTemplateColumns = '1fr 1fr';
+      }
+    }
+  }
+  checkAbout();
+  window.addEventListener('resize', checkAbout);
+</script>
+</body>
+</html>
